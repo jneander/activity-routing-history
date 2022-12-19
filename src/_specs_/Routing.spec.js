@@ -214,7 +214,7 @@ describe('Routing', () => {
       routing.updateQuery({data: 'example'})
       expect(routing.getCurrentActivity().query).to.deep.equal({
         data: 'example',
-        sort: 'ascending'
+        sort: 'ascending',
       })
     })
 
