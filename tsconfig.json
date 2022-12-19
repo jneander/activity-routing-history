@@ -14,5 +14,8 @@
     "sourceMap": false,
     "target": "ES2022"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "ts-node": {
+    "files": true
+  }
 }
