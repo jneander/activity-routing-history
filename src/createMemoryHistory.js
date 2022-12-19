@@ -1,1 +1,0 @@
-export {createMemoryHistory} from 'history'

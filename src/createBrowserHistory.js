@@ -1,1 +1,0 @@
-export {createBrowserHistory} from 'history'

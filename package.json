@@ -37,9 +37,6 @@
   "author": "Jeremy Neander <jeremy.neander@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/jneander/activity-routing-history",
-  "dependencies": {
-    "history": "^5.0.0"
-  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@jneander/activity-routing": "^2.0.3",
@@ -51,6 +48,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-mocha": "^10.0.0",
     "eslint-plugin-promise": "^6.0.0",
+    "history": "^5.0.0",
     "mocha": "^10.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.8.1",
@@ -58,7 +56,8 @@
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "@jneander/activity-routing": "^1.0.0 || ^2.0.0"
+    "@jneander/activity-routing": "^1.0.0 || ^2.0.0",
+    "history": "^5.0.0"
   },
   "prettier": "@jneander/prettier-config"
 }
