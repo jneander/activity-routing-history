@@ -1,23 +1,36 @@
+import type {Activity, ActivityQuery, Router} from '@jneander/activity-routing'
+import type {History} from 'history'
+
+export interface RoutingOptions {
+  history: History
+  router: Router
+}
+
+export type ActivitySetMethod = 'push' | 'replace'
+
 export class Routing {
-  constructor({history, router}) {
+  private _history: History
+  private _router: Router
+
+  constructor({history, router}: RoutingOptions) {
     this._history = history
     this._router = router
   }
 
-  get history() {
+  get history(): History {
     return this._history
   }
 
-  get router() {
+  get router(): Router {
     return this._router
   }
 
-  getCurrentActivity() {
+  getCurrentActivity(): Activity {
     const {pathname, search} = this.history.location
     return this.router.buildActivityFromLocation(pathname, search.replace(/^\?/, ''))
   }
 
-  setActivity(activity, method = 'push') {
+  setActivity(activity: Activity, method: ActivitySetMethod = 'push'): void {
     const currentActivity = this.getCurrentActivity()
     if (activity.url === currentActivity.url) {
       return
@@ -30,18 +43,18 @@ export class Routing {
     }
   }
 
-  setQuery(queryDatum, method = 'push') {
+  setQuery(queryDatum: ActivityQuery, method: ActivitySetMethod = 'push'): void {
     const {name, params} = this.getCurrentActivity()
     const activity = this.router.buildActivity(name, params, queryDatum)
     this.setActivity(activity, method)
   }
 
-  updateQuery(queryDatum, method = 'push') {
+  updateQuery(queryDatum: ActivityQuery, method: ActivitySetMethod = 'push'): void {
     const {query} = this.getCurrentActivity()
     this.setQuery({...query, ...queryDatum}, method)
   }
 
-  subscribe(callback) {
+  subscribe(callback: (activity: Activity) => void): () => void {
     return this.history.listen(({location}) => {
       const {pathname, search} = location
       callback(this.router.buildActivityFromLocation(pathname, search))

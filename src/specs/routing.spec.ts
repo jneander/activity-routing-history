@@ -1,13 +1,14 @@
+import type {Activity} from '@jneander/activity-routing'
 import {expect} from 'chai'
-import {createMemoryHistory} from 'history'
-import sinon from 'sinon'
+import {History, createMemoryHistory} from 'history'
+import sinon, {SinonSpy} from 'sinon'
 
 import {Routing} from '../routing'
 import {router} from './example-router'
 
 describe('Routing', () => {
-  let history
-  let routing
+  let history: History
+  let routing: Routing
 
   beforeEach(() => {
     history = createMemoryHistory()
@@ -66,7 +67,7 @@ describe('Routing', () => {
   })
 
   describe('#setActivity()', () => {
-    let updateSpy
+    let updateSpy: SinonSpy
 
     beforeEach(() => {
       const activity = routing.router.buildActivity('showUser', {id: '123'}, {details: 'all'})
@@ -242,8 +243,8 @@ describe('Routing', () => {
   })
 
   describe('subscription', () => {
-    let currentActivity
-    let unsubscribe
+    let currentActivity: Activity
+    let unsubscribe: () => void
 
     beforeEach(() => {
       currentActivity = null
