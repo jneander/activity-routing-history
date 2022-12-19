@@ -42,7 +42,7 @@ export default class Routing {
   }
 
   subscribe(callback) {
-    return this.history.listen(location => {
+    return this.history.listen(({location}) => {
       const {pathname, search} = location
       callback(this.router.buildActivityFromLocation(pathname, search))
     })

@@ -90,19 +90,19 @@ describe('Routing', () => {
       it('pushes the path for the activity onto the history', () => {
         const activity = routing.router.buildActivity('listUsers')
         routing.setActivity(activity)
-        expect(history.length).to.equal(2)
+        expect(history.index).to.equal(1)
       })
 
       it('updates the current activity when parameters are different', () => {
         const activity = routing.router.buildActivity('showUser', {id: '456'}, {details: 'all'})
         routing.setActivity(activity)
-        expect(history.length).to.equal(2)
+        expect(history.index).to.equal(1)
       })
 
       it('updates the current activity when the search query is different', () => {
         const activity = routing.router.buildActivity('showUser', {id: '456'}, {details: 'limited'})
         routing.setActivity(activity)
-        expect(history.length).to.equal(2)
+        expect(history.index).to.equal(1)
       })
 
       it('has no effect when the given path is the current path in the history', () => {
@@ -171,23 +171,23 @@ describe('Routing', () => {
     describe('when using the "push" method', () => {
       it('pushes the updated activity into the history', () => {
         routing.setQuery({data: 'example'})
-        expect(history.length).to.equal(2)
+        expect(history.index).to.equal(1)
       })
 
       it('has no effect when the given path is the current path in the history', () => {
         routing.setQuery({}, 'push')
-        expect(history.length).to.equal(1)
+        expect(history.index).to.equal(0)
       })
     })
 
     it('optionally replaces the current activity in the history', () => {
       routing.setQuery({data: 'example'}, 'replace')
-      expect(history.length).to.equal(1)
+      expect(history.index).to.equal(0)
     })
 
     it('pushes the updated activity into the history by default', () => {
       routing.setQuery({data: 'example'})
-      expect(history.length).to.equal(2)
+      expect(history.index).to.equal(1)
     })
   })
 
@@ -220,23 +220,23 @@ describe('Routing', () => {
     describe('when using the "push" method', () => {
       it('pushes the updated activity into the history', () => {
         routing.updateQuery({data: 'example'})
-        expect(history.length).to.equal(2)
+        expect(history.index).to.equal(1)
       })
 
       it('has no effect when the given path is the current path in the history', () => {
         routing.updateQuery({}, 'push')
-        expect(history.length).to.equal(1)
+        expect(history.index).to.equal(0)
       })
     })
 
     it('optionally replaces the current activity in the history', () => {
       routing.updateQuery({data: 'example'}, 'replace')
-      expect(history.length).to.equal(1)
+      expect(history.index).to.equal(0)
     })
 
     it('pushes the updated activity into the history by default', () => {
       routing.updateQuery({data: 'example'})
-      expect(history.length).to.equal(2)
+      expect(history.index).to.equal(1)
     })
   })
 
