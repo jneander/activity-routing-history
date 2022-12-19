@@ -1,4 +1,4 @@
-export default class Routing {
+export class Routing {
   constructor({history, router}) {
     this._history = history
     this._router = router

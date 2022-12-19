@@ -1,3 +1,3 @@
-export {default as createBrowserHistory} from './createBrowserHistory'
-export {default as createMemoryHistory} from './createMemoryHistory'
-export {default as Routing} from './Routing'
+export {createBrowserHistory} from './createBrowserHistory'
+export {createMemoryHistory} from './createMemoryHistory'
+export {Routing} from './Routing'

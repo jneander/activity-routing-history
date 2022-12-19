@@ -1,17 +1,17 @@
 import {expect} from 'chai'
 import sinon from 'sinon'
 
-import createHistory from '../createMemoryHistory'
-import Routing from '../Routing'
-import exampleRouter from './exampleRouter'
+import {createMemoryHistory} from '../createMemoryHistory'
+import {Routing} from '../Routing'
+import {router} from './exampleRouter'
 
 describe('Routing', () => {
   let history
   let routing
 
   beforeEach(() => {
-    history = createHistory()
-    routing = new Routing({history, router: exampleRouter})
+    history = createMemoryHistory()
+    routing = new Routing({history, router: router})
   })
 
   describe('#history', () => {
@@ -22,7 +22,7 @@ describe('Routing', () => {
 
   describe('#router', () => {
     it('is the router used by the Routing instance', () => {
-      expect(routing.router).to.equal(exampleRouter)
+      expect(routing.router).to.equal(router)
     })
   })
 
