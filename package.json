@@ -24,6 +24,7 @@
     "lint:prettier": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
     "prebuild": "npm run clean",
+    "prepublishOnly": "npm run build",
     "test": "mocha",
     "test:types": "tsc --noEmit",
     "test:types:watch": "tsc --noEmit --watch",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@jneander/activity-routing": "^2.0.3",
     "@jneander/prettier-config": "^1.0.0",
+    "@jneander/semantic-release-config": "^1.0.1",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/qs": "^6.9.7",
@@ -68,5 +70,10 @@
     "@jneander/activity-routing": "^1.0.0 || ^2.0.0",
     "history": "^5.0.0"
   },
-  "prettier": "@jneander/prettier-config"
+  "prettier": "@jneander/prettier-config",
+  "release": {
+    "extends": [
+      "@jneander/semantic-release-config"
+    ]
+  }
 }
