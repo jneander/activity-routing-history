@@ -1,7 +1,7 @@
 import {expect} from 'chai'
+import {createMemoryHistory} from 'history'
 import sinon from 'sinon'
 
-import {createMemoryHistory} from '../createMemoryHistory'
 import {Routing} from '../Routing'
 import {router} from './exampleRouter'
 
