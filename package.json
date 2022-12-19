@@ -19,11 +19,13 @@
     "build:cjs": "tsc -p ./config/tsconfig.cjs.json",
     "build:esm": "tsc -p ./config/tsconfig.esm.json",
     "clean": "rimraf dist/*",
+    "lint:commits": "commitlint --from $(git symbolic-ref --short refs/remotes/origin/HEAD) --to HEAD",
     "lint:eslint": "eslint .",
     "lint:eslint:fix": "eslint --fix .",
     "lint:prettier": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
     "prebuild": "npm run clean",
+    "prepare": "[ -z $CI ] && git config --local core.hooksPath .githooks || true",
     "prepublishOnly": "npm run build",
     "test": "mocha",
     "test:types": "tsc --noEmit",
@@ -41,7 +43,9 @@
   "license": "MIT",
   "homepage": "https://github.com/jneander/activity-routing-history",
   "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
     "@jneander/activity-routing": "^2.0.3",
+    "@jneander/commitlint-config": "^1.0.1",
     "@jneander/prettier-config": "^1.0.0",
     "@jneander/semantic-release-config": "^1.0.1",
     "@types/chai": "^4.3.4",
@@ -59,6 +63,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "history": "^5.0.0",
+    "lint-staged": "^13.0.0",
     "mocha": "^10.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.8.1",
@@ -69,6 +74,12 @@
   "peerDependencies": {
     "@jneander/activity-routing": "^1.0.0 || ^2.0.0",
     "history": "^5.0.0"
+  },
+  "commitlint": {
+    "extends": "@jneander/commitlint-config"
+  },
+  "lint-staged": {
+    "*": "prettier --check --ignore-unknown"
   },
   "prettier": "@jneander/prettier-config",
   "release": {
