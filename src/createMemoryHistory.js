@@ -1,2 +1,1 @@
-import {createMemoryHistory} from 'history'
-export default createMemoryHistory
+export {createMemoryHistory} from 'history'
