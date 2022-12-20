@@ -7,6 +7,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/jneander/activity-routing-history/compare/v2.0.0...v2.0.1) (2022-12-20)
+
+### Bug Fixes
+
+- add extensions to imports
+  ([a415268](https://github.com/jneander/activity-routing-history/commit/a4152682b278ef2f112f378680c4204cc14909aa))
+
 ## [2.0.0](https://github.com/jneander/activity-routing-history/compare/v1.0.1...v2.0.0) (2022-12-19)
 
 ### ⚠ BREAKING CHANGES
